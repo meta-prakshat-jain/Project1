@@ -6,10 +6,12 @@ class Item {
     private  int itemId;
     private String name;
     private double price;
+    private String Description;
 
-    public Item(int itemId, String name, double price) {
+    public Item(int itemId, String name,String Description, double price) {
         this.itemId = itemId;
         this.name = name;
+        this.Description=Description;
         this.price = price;
     }
 
@@ -24,8 +26,11 @@ class Item {
     public double getPrice() {
         return price;
     }
+    public String getDesc() {
+    	return Description;
+    }
     public String toString() {
-        return "ID: " + itemId + " | " + name + " | Price: $" + price;
+        return "ID: " + itemId + " | " + name +" |  "+Description+ " | Price: " + price;
     }
 }
 
@@ -71,7 +76,7 @@ class ShoppingCart {
         for (Map.Entry<Item, Integer> entry : cart.entrySet()) {
             total += entry.getKey().getPrice() * entry.getValue();
         }
-        System.out.println("Total Bill: $" + total);
+        System.out.println("Total Bill: Rs" + total);
     }
 }
 
@@ -82,16 +87,15 @@ public class Main {
 
         
         Map<Integer, Item> items = new HashMap<>();
-        items.put(1, new Item(1, "Laptop", 900.0));
-        items.put(2, new Item(2, "Smartphone", 700.0));
-        items.put(3, new Item(3, "Headphones", 120.0));
-        items.put(4, new Item(4, "Mouse", 30.0));
-        items.put(5, new Item(5, "Keyboard", 80.0));
-        items.put(6, new Item(6, "Monitor", 300.0));
-        items.put(7, new Item(7, "Printer", 200.0));
-        items.put(8, new Item(8, "External SSD", 150.0));
-        items.put(9, new Item(9, "Gaming Chair", 250.0));
-        items.put(10, new Item(10, "Smart Watch", 180.0));
+        items.put(1, new Item(1, "Laptop","Windows 11 full time MS office", 111900.0));
+        items.put(2, new Item(2, "Smartphone","Latest Model with latest processor", 17000.0));
+        items.put(3, new Item(3, "Headphones","Noise Cancelling", 11120.0));
+        items.put(4, new Item(4, "Mouse","Super Fast", 1030.0));
+        items.put(5, new Item(5, "Keyboard","Compact", 1180.0));
+        items.put(6, new Item(6, "Monitor","Large and HD", 1300.0));
+        items.put(7, new Item(7, "Printer","Color Printer", 2200.0));
+        items.put(8, new Item(8, "External SSD","512 GB", 11150.0));
+        items.put(9, new Item(9, "Gaming Chair", "Comfortable",22250.0));
 
         while (true) {
             System.out.println("\nMenu:");
@@ -170,4 +174,3 @@ public class Main {
         }
     }
 }
-
